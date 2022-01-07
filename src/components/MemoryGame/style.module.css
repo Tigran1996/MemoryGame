@@ -1,0 +1,54 @@
+h1{
+    text-align: center;
+}
+.container{
+    padding: 40px 30px;
+    width: 100%;
+    height: 100vh;
+    background: #00b0ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.memory_grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+    margin-top: 40px;
+}
+.memory_grid > div{
+    border: 1px solid #fff;
+    height: 200px;
+    position: relative;
+    z-index: 0;
+
+}
+.memory_grid > div.closed img{
+    opacity: 0;
+}
+.memory_grid > div.closed:after{
+    content: "";
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    height: 200px;
+    transform: rotate3d(1, 1, 1,
+    0deg);
+    transition: 200ms ease transform;
+}
+.memory_grid > div.open:after{
+    content: "";
+    height: 0px;
+    transform: rotate3d(1, 1, 1,
+    360deg);
+    transition: 200ms ease height;
+}
+.memory_grid > div img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
